@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   About,
   Cart,
@@ -12,7 +13,12 @@ import {
   Register,
   SingleProduct,
 } from './pages';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ErrorElement } from './components';
+
+// Loaders
+import { loader as loaderLanding } from './pages/Landing';
+
+// Actions
 
 const router = createBrowserRouter([
   {
@@ -20,7 +26,12 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
-      { index: true, element: <Landing /> },
+      {
+        index: true,
+        element: <Landing />,
+        errorElement: <ErrorElement />,
+        loader: loaderLanding,
+      },
       { path: 'products', element: <Products /> },
       { path: 'products/:id', element: <SingleProduct /> },
       { path: 'about', element: <About /> },

@@ -12,7 +12,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState(getTheme());
 
   const handleTheme = () => {
-    const newTheme = theme === 'winter' ? 'synthwave' : 'winter';
+    const newTheme = theme === 'winter' ? 'business' : 'winter';
     setTheme(newTheme);
   };
 
