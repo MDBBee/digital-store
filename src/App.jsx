@@ -21,16 +21,16 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Landing /> },
-      { index: 'products', element: <Products /> },
-      { index: 'products/:id', element: <SingleProduct /> },
+      { path: 'products', element: <Products /> },
+      { path: 'products/:id', element: <SingleProduct /> },
+      { path: 'about', element: <About /> },
+      { path: 'cart', element: <Cart /> },
+      { path: 'checkout', element: <Checkout /> },
+      { path: 'orders', element: <Orders /> },
     ],
   },
-  { path: 'login', element: <Login /> },
-  { path: 'register', element: <Register /> },
-  { index: 'cart', element: <Cart /> },
-  { index: 'about', element: <About /> },
-  { index: 'checkout', element: <Checkout /> },
-  { index: 'orders', element: <Orders /> },
+  { path: '/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
 ]);
 
 function App() {
