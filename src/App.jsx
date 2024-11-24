@@ -18,6 +18,7 @@ import { ErrorElement } from './components';
 // Loaders
 import { loader as loaderLanding } from './pages/Landing';
 import { loader as loaderSingleProduct } from './pages/SingleProduct';
+import { loader as loaderProducts } from './pages/Products';
 
 // Actions
 
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
         errorElement: <ErrorElement />,
         loader: loaderLanding,
       },
-      { path: 'products', element: <Products /> },
+      {
+        path: 'products',
+        element: <Products />,
+        errorElement: <ErrorElement />,
+        loader: loaderProducts,
+      },
       {
         path: 'products/:id',
         element: <SingleProduct />,

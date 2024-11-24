@@ -1,10 +1,10 @@
 import ProductsGrid from './ProductsGrid';
-import SectionTitle from './SectionTitle';
+import SectionTiltle from './SectionTitle';
 
 function FeaturedProducts() {
   return (
     <div className="pt-24">
-      <SectionTitle text="featured products" />
+      <SectionTiltle text="featured products" />
       <ProductsGrid />
     </div>
   );
