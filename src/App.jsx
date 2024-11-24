@@ -21,6 +21,7 @@ import { loader as loaderSingleProduct } from './pages/SingleProduct';
 import { loader as loaderProducts } from './pages/Products';
 
 // Actions
+// import { action as actionFilter } from './components/Filters';
 
 const router = createBrowserRouter([
   {

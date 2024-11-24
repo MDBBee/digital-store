@@ -28,6 +28,7 @@ function ProductsContainer() {
           <button
             onClick={() => setLayout('grid')}
             className={setActiveStyles('grid')}
+            // className="text-xl btn btn-circle btn-sm btn-primary text-primary-content"
           >
             <BsFillGridFill />
           </button>
