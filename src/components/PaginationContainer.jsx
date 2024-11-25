@@ -9,8 +9,6 @@ function PaginationContainer() {
 
   const numPages = Array.from({ length: pageCount }, (_, index) => index + 1);
 
-  console.log(search, pathname);
-
   const handlePageChange = (number) => {
     const searchParams = new URLSearchParams(search);
     searchParams.set('page', number);
