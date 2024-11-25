@@ -4,12 +4,24 @@ import { customFetch } from '../utils';
 import {
   ComplexPaginationContainer,
   OrdersList,
-  PaginationContainer,
   SectionTitle,
 } from '../components';
 
+const orderQury = (params, user) => {
+  return {
+    queryKey: ['orders', +params.page || 1, user.user.username],
+    queryFn: () =>
+      customFetch.get('/orders', {
+        params,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }),
+  };
+};
+
 export const loader =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const user = store.getState().userState.user;
 
@@ -22,12 +34,9 @@ export const loader =
     ]);
 
     try {
-      const response = await customFetch.get('/orders', {
-        params,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await queryClient.ensureQueryData(
+        orderQury(params, user)
+      );
 
       return { orders: response.data.data, meta: response.data.meta };
     } catch (error) {
