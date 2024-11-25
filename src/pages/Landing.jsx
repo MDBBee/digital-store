@@ -4,8 +4,13 @@ import FeaturedProducts from '../components/FeaturedProducts';
 
 const url = '/products?featured=true';
 
-export const loader = async () => {
-  const response = await customFetch(url);
+const landingPageQury = {
+  queryKey: ['featuredProducts'],
+  queryFn: () => customFetch(url),
+};
+
+export const loader = (queryClient) => async () => {
+  const response = await queryClient.ensureQueryData(landingPageQury);
   const products = response.data.data;
   return { products };
 };
