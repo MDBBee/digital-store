@@ -14,6 +14,7 @@ import {
   SingleProduct,
 } from './pages';
 import { ErrorElement } from './components';
+import { store } from './store';
 
 // Loaders
 import { loader as loaderLanding } from './pages/Landing';
@@ -21,7 +22,8 @@ import { loader as loaderSingleProduct } from './pages/SingleProduct';
 import { loader as loaderProducts } from './pages/Products';
 
 // Actions
-// import { action as actionFilter } from './components/Filters';
+import { action as actionRegister } from './pages/Register';
+import { action as actionLogin } from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -53,8 +55,8 @@ const router = createBrowserRouter([
       { path: 'orders', element: <Orders /> },
     ],
   },
-  { path: '/login', element: <Login /> },
-  { path: '/register', element: <Register /> },
+  { path: '/login', element: <Login />, action: actionLogin(store) },
+  { path: '/register', element: <Register />, action: actionRegister },
 ]);
 
 function App() {
