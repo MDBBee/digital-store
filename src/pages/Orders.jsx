@@ -54,6 +54,7 @@ export const loader =
 
 const Orders = () => {
   const { meta } = useLoaderData();
+
   if (meta.pagination.total < 1) {
     return <SectionTitle text="Please create an order" />;
   }

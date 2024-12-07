@@ -41,7 +41,6 @@ function Login() {
       navigate('/');
     } catch (error) {
       const errorMessage = 'please double check your credentials';
-
       toast.error(errorMessage);
       return;
     }

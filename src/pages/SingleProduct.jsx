@@ -121,7 +121,7 @@ function SingleProduct() {
               className="btn btn-secondary btn-md"
               onClick={() => addToCart()}
             >
-              Add to bag
+              Add to cart
             </button>
           </div>
         </div>

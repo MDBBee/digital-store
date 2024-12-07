@@ -3,8 +3,8 @@ import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 const ComplexPaginationContainer = () => {
   const { meta } = useLoaderData();
   const { pageCount, page } = meta.pagination;
-
   const { search, pathname } = useLocation();
+
   const navigate = useNavigate();
   const handlePageChange = (pageNumber) => {
     const searchParams = new URLSearchParams(search);
@@ -32,26 +32,26 @@ const ComplexPaginationContainer = () => {
     pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }));
 
     // dots
-    if (page > 2) {
-      pageButtons.push(
-        <button className="join-item btn btn-xs sm:btn-md" key="dots-1">
-          ...
-        </button>
-      );
-    }
+    // if (page > 2) {
+    //   pageButtons.push(
+    //     <button className="join-item btn btn-xs sm:btn-md" key="dots-1">
+    //       ...
+    //     </button>
+    //   );
+    // }
 
     // active/current page
-    if (page !== 1 && page !== pageCount) {
-      pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }));
-    }
+    // if (page !== 1 && page !== pageCount) {
+    //   pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }));
+    // }
     // dots
-    if (page < pageCount - 1) {
-      pageButtons.push(
-        <button className="join-item btn btn-xs sm:btn-md" key="dots-2">
-          ...
-        </button>
-      );
-    }
+    // if (page < pageCount - 1) {
+    //   pageButtons.push(
+    //     <button className="join-item btn btn-xs sm:btn-md" key="dots-2">
+    //       ...
+    //     </button>
+    //   );
+    // }
 
     // last button
     pageButtons.push(

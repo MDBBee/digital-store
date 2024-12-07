@@ -12,10 +12,10 @@ function Header() {
   const queryClient = useQueryClient();
 
   const handleLogout = () => {
-    navigate('/');
     dispatch(clearCart());
     dispatch(logoutUser());
     queryClient.removeQueries();
+    navigate('/');
   };
 
   return (

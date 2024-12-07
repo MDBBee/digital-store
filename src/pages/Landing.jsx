@@ -12,6 +12,7 @@ const landingPageQury = {
 export const loader = (queryClient) => async () => {
   const response = await queryClient.ensureQueryData(landingPageQury);
   const products = response.data.data;
+
   return { products };
 };
 

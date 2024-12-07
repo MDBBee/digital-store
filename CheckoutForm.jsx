@@ -1,7 +1,7 @@
 import { Form, redirect } from 'react-router-dom';
 import FormInput from './FormInput';
 import SubmitBtn from './SubmitBtn';
-import { customFetch, formattedPrice } from '../utils';
+import { customFetch, formatPrice } from '../utils';
 import { toast } from 'react-toastify';
 import { clearCart } from '../features/cart/cartSlice';
 
@@ -18,10 +18,11 @@ export const action =
       name,
       address,
       chargeTotal: orderTotal,
-      orderTotal: formattedPrice(orderTotal),
+      orderTotal: formatPrice(orderTotal),
       cartItems,
       numItemsInCart,
     };
+
     try {
       const response = await customFetch.post(
         '/orders',
@@ -32,7 +33,7 @@ export const action =
           },
         }
       );
-      queryClient.removeQueries(['order']);
+      queryClient.removeQueries(['orders']);
       store.dispatch(clearCart());
       toast.success('order placed successfully');
       return redirect('/orders');
@@ -40,23 +41,21 @@ export const action =
       console.log(error);
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'An error occured while placing your order';
-
+        'there was an error placing your order';
       toast.error(errorMessage);
-      if (error.response.status === 400) return null;
-
-      return redirect('/login');
+      if (error?.response?.status === 401 || 403) return redirect('/login');
+      return null;
     }
   };
 
 const CheckoutForm = () => {
   return (
-    <Form method="POST" className="flex flex-col gap-y-4">
-      <h4 className="font-medium text-xl">Shipping Information</h4>
-      <FormInput label="first name" name="name" type="text" />
-      <FormInput label="address" name="address" type="text" />
-      <div className="mt-4">
-        <SubmitBtn text="Place Your Order" />
+    <Form method='POST' className='flex flex-col gap-y-4'>
+      <h4 className='font-medium text-xl capitalize'>shipping information</h4>
+      <FormInput label='first name' name='name' type='text' />
+      <FormInput label='address' name='address' type='text' />
+      <div className='mt-4'>
+        <SubmitBtn text='place your order' />
       </div>
     </Form>
   );

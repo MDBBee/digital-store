@@ -5,6 +5,7 @@ import { redirect } from 'react-router-dom';
 
 export const loader = (store) => async () => {
   const user = store.getState().userState.user;
+  console.log(store);
 
   if (!user) {
     toast.warn("Can't access this page without logging in!!");
@@ -15,7 +16,9 @@ export const loader = (store) => async () => {
 
 const Checkout = () => {
   const cartTotal = useSelector((state) => state.cartState.cartTotal);
-  if (cartTotal.length === 0) {
+  console.log(cartTotal);
+
+  if (cartTotal === 0) {
     return <SectionTitle text="Your cart is empty" />;
   }
   return (
