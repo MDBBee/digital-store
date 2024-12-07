@@ -4,7 +4,6 @@ function PaginationContainer() {
   const { meta } = useLoaderData();
   const { pageCount, page } = meta.pagination;
   const { search, pathname } = useLocation();
-
   const navigate = useNavigate();
 
   const numPages = Array.from({ length: pageCount }, (_, index) => index + 1);
@@ -19,9 +18,9 @@ function PaginationContainer() {
 
   return (
     <div className="mt-16 flex justify-end">
-      <div className="join">
+      <div className="join   ">
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn btn-xs sm:btn-md join-item bg-lime-700"
           onClick={() => {
             let prevPage = page - 1;
             if (prevPage < 1) prevPage = pageCount;
@@ -44,7 +43,7 @@ function PaginationContainer() {
           );
         })}
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn btn-xs sm:btn-md join-item bg-lime-700"
           onClick={() => {
             let nextPage = page + 1;
             if (nextPage > pageCount) nextPage = 1;

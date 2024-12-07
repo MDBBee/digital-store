@@ -13,7 +13,7 @@ function ProductsContainer() {
     return `text-xl btn btn-circle btn-sm ${
       pattern === layout
         ? 'btn-primary text-primary-content'
-        : 'btn-ghost text-base-content'
+        : 'btn-ghost  text-base-content'
     }`;
   };
 

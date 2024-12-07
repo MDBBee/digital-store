@@ -91,7 +91,7 @@ function SingleProduct() {
                     key={color}
                     type="button"
                     className={`badge  w-6 h-6 mr-2 rounded-full  ${
-                      color === productColor && 'border-2 border-secondary'
+                      color === productColor && 'border-4 border-secondary'
                     }`}
                     style={{ backgroundColor: color }}
                     onClick={() => setProductColor(color)}

@@ -21,7 +21,7 @@ function ProductsList() {
               className="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover group-hover:scale-105 transition duration-300"
             />
 
-            <div className="ml-0 sm:ml-16">
+            <div className="ml-0 sm:ml-16 sm:self-center">
               <h3 className="capitalize font-medium text-lg">{title}</h3>
               <h4 className="capitalize text-md text-neutral-content">
                 {company}
@@ -30,7 +30,7 @@ function ProductsList() {
               {/* COLOR */}
             </div>
 
-            <p className="font-medium ml-0 sm:ml-auto text-lg">
+            <p className="font-medium ml-0 sm:ml-auto text-lg sm:self-center">
               {dollarsAmount}
             </p>
           </Link>
